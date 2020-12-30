@@ -36,6 +36,6 @@ schema.yml
 
 ## Generate Frontend Client openapi-generator-cli
 
-`openapi-generator-cli generate -g typescript-angular -i ./schema.yaml -o ./frontend/openapi`
+`openapi-generator-cli generate -g typescript-angular -i ./schema.yaml -o ./user-frontend/openapi`
 
 ## Develop Backend and Frontend
