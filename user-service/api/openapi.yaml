@@ -1,0 +1,108 @@
+openapi: 3.0.3
+info:
+  title: User API
+  version: 1.0.0
+servers:
+- url: http://localhost:8080/user
+paths:
+  /get/{id}:
+    get:
+      operationId: getUser
+      parameters:
+      - description: User Id
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: Expected response to a valid request
+      summary: Get a User
+      tags:
+      - User
+    summary: Get a User
+  /create:
+    post:
+      operationId: createUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        description: A user to create
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: Expected response to a valid request
+      summary: Creates a User
+      tags:
+      - User
+    summary: Creates a User
+  /update:
+    put:
+      operationId: updateUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        description: A user to update
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: Expected response to a valid request
+      summary: Updates a User
+      tags:
+      - User
+    summary: Updates a User
+  /delete/{id}:
+    delete:
+      operationId: deleteUser
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: Expected response to a valid request
+      summary: Deletes a User
+      tags:
+      - User
+    summary: Deletes a User
+components:
+  schemas:
+    User:
+      example:
+        nickname: nickname
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        id:
+          format: uuid
+          type: string
+        nickname:
+          type: string
+      required:
+      - nickname
